@@ -15,6 +15,7 @@
 
 <script>
 import BaseIcon from './BaseIcon.vue'
+
 export default {
   data(){
     let hour=Math.trunc(Math.random()*60).toString()
