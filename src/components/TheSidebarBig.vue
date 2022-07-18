@@ -13,16 +13,17 @@
         <SidebarNavItem label="History" icon="clock" />
       </ul>
     </section>
-    <section class="py-4 px-4 border-b font-medium leading-5"> <!-- секция регистрации -->
-      <span class="text-sm"> <!-- текст регистрации -->
+    <section class="py-4 px-4 border-b font-medium leading-5 flex flex-col"> <!-- секция регистрации -->
+      <span class="text-sm pb-2"> <!-- текст регистрации -->
         Sign in to like videos, comment, and subscribe.
       </span>
-      <button class="flex items-center px-2 py-0.5 mt-3 text-sm text-blue-700 uppercase border border-blue-700 rounded-sm"> <!-- логин -->
+      <ButtonLogin />
+      <!-- <button class="flex items-center px-2 py-0.5 mt-3 text-sm text-blue-700 uppercase border border-blue-700 rounded-sm">
         <BaseIcon name="login" class="mr-2 h-7 w-7" />
         <span>
           Sing in
         </span>
-      </button>
+      </button> -->
     </section>
     <section class="py-2 border-b"> <!-- 3 список -->
       <div class="text-sm font-semibold px-6 py-2">
@@ -85,11 +86,13 @@
 <script>
 import SidebarNavItem from './SidebarNavItem.vue'
 import BaseIcon from './BaseIcon.vue'
+import ButtonLogin from './ButtonLogin.vue'
 
 export default {
   components:{
     SidebarNavItem,
-    BaseIcon
+    BaseIcon,
+    ButtonLogin
   }
 }
 </script>
