@@ -1,7 +1,17 @@
 import Vuex from 'vuex'
 
 export default new Vuex.Store({
+  mutations:{
+    changeMobileSidebarStatus(state){
+      state.isMobileSidebarOpen=!state.isMobileSidebarOpen
+    }
+  },
   state: {
-    count: 0
+    isMobileSidebarOpen:false
+  },
+  getters:{
+    mobileSidebarStatus(state){
+      return state.isMobileSidebarOpen
+    }
   }
 })
