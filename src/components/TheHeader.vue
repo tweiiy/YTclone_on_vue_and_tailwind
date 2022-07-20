@@ -2,7 +2,7 @@
   <header class="flex fixed z-30 w-full justify-between"> <!-- навигация -->
     <div class="w-1/4 flex">
       <div class="items-center w-1/2 md:w-64 flex bg-white"> <!-- левая часть -->
-        <button class="pl-6 pr-6"> <!-- меню -->
+        <button @click="$emit('openMobileSidebar')" class="pl-6 pr-6"> <!-- меню -->
           <BaseIcon name="menu"/>
         </button>
         <LogoMain /> <!-- лого YouTube -->
@@ -38,6 +38,9 @@ export default {
     TheSearch,
     ButtonLogin,
     BaseIcon
+  },
+  emits:{
+    openMobileSidebar: null
   }
 }
 </script>

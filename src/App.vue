@@ -1,6 +1,6 @@
 <template>
-  <TheHeader /> <!-- навигация -->
-  <TheSidebarMobile /> <!-- сайдбар для мобилок -->
+  <TheHeader @openMobileSidebar="openMobileSidebar" /> <!-- навигация -->
+  <TheSidebarMobile :is-open="isMobileOpen" /> <!-- сайдбар для мобилок -->
   <TheSidebarSmall /> <!-- маленький сайдбар -->
   <TheSidebarBig /> <!-- большой сайдбар -->
   <TheCategories /> <!-- категории -->
@@ -22,7 +22,17 @@ export default {
     TheSidebarSmall,
     TheSidebarBig,
     TheCategories,
-    TheVideos,
+    TheVideos
+  },
+  data() {
+    return {
+      isMobileOpen: false
+    }
+  },
+  methods:{
+    openMobileSidebar(){
+      this.isMobileOpen=true
+    }
   }
 }
 </script>
