@@ -7,7 +7,7 @@
       leave-from-class="opacity-100"
       leave-to-class="opacity-0"
       >
-    <TheSidebarMobileOverlay @click="$store.commit('changeMobileSidebarStatus')" v-show="$store.getters.mobileSidebarStatus"/> 
+    <TheSidebarMobileOverlay @click="changeMobileSidebarStatus" v-show="mobileSidebarStatus"/> 
   </transition>
   <transition
       enter-active-class="transition ease-in-out duration-200 transform"
@@ -17,10 +17,10 @@
       leave-from-class="translate-x-0"
       leave-to-class="-translate-x-full"
       >
-    <aside class="w-64 max-h-screen overflow-auto bg-white fixed z-50" v-show="$store.getters.mobileSidebarStatus">
+    <aside class="w-64 max-h-screen overflow-auto bg-white fixed z-50 outline-none" ref="mobileSidebar" tabindex="-1" v-show="mobileSidebarStatus">
       <section class="border-b sticky top-0 bg-white"> <!-- логотип -->
         <div class="items-center w-64 flex bg-white ml-4 my-4"> <!-- меню -->
-          <button @click="$store.commit('changeMobileSidebarStatus')" class="ml-2 mr-6"> <!-- меню -->
+          <button @click="changeMobileSidebarStatus" class="ml-2 mr-6"> <!-- меню -->
             <BaseIcon name="menu" class="h-6 w-6" />
           </button>
           <LogoMain /> <!-- лого YouTube -->
@@ -36,7 +36,7 @@ import LogoMain from './LogoMain.vue'
 import SidebarMainContent from './SidebarMainContent.vue'
 import BaseIcon from './BaseIcon.vue'
 import TheSidebarMobileOverlay from './TheSidebarMobileOverlay.vue'
-// import {mapGetters,mapMutations} from 'vuex'
+import {mapGetters,mapMutations} from 'vuex'
 
 export default {
   components:{
@@ -44,6 +44,8 @@ export default {
     SidebarMainContent,
     BaseIcon,
     TheSidebarMobileOverlay
-  }
+  },
+  computed: mapGetters(['mobileSidebarStatus']),
+  methods: mapMutations(['changeMobileSidebarStatus'])
 }
 </script>

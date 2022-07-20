@@ -2,7 +2,7 @@
   <header class="flex fixed z-30 w-full justify-between"> <!-- навигация -->
     <div class="w-1/4 flex">
       <div class="items-center w-1/2 md:w-64 flex bg-white"> <!-- левая часть -->
-        <button @click="$store.commit('changeMobileSidebarStatus')" class="pl-6 pr-6"> <!-- меню -->
+        <button @click="changeMobileSidebarStatus" class="pl-6 pr-6"> <!-- меню -->
           <BaseIcon name="menu"/>
         </button>
         <LogoMain /> <!-- лого YouTube -->
@@ -29,6 +29,7 @@ import LogoMain from './LogoMain.vue'
 import TheSearch from './TheSearch.vue'
 import ButtonLogin from './ButtonLogin.vue'
 import BaseIcon from './BaseIcon.vue'
+import {mapMutations} from 'vuex'
 
 export default {
   components: {
@@ -38,6 +39,7 @@ export default {
     TheSearch,
     ButtonLogin,
     BaseIcon
-  }
+  },
+  methods: mapMutations(['changeMobileSidebarStatus'])
 }
 </script>
